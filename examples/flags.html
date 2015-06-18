@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="js/jquery-min.js"></script>
+    <script src="js/jquery.jqif.js"></script>
+    <script src="js/utils.js"></script>
+    <title>jqIf - Flags</title>
+</head>
+
+<body>
+    <h2>jqIf - Flags</h2>
+    <div id="tree"></div>
+    <pre id="source"></pre>
+    <script>
+    $("#tree").jqIf({
+        nodes: {
+            landing: {
+                text: "<p>The door to the spaceship opens. It's time to step out and explore a new planet. What do you take with you?</p>",
+                options: [{
+                        label: "Take the laser.",
+                        target: "outside",
+                        setTrue: "laser"
+                    },
+                    {
+                        label: "Take the medkit.",
+                        target: "outside",
+                        setTrue: "medkit"
+                    }]
+            },
+            outside:  { 
+                text:"<p>Good choice.</p> <p>You begin exploring the lush alien jungle, and soon find a clearing in which an odd monkey like creature entangled in vines. Purple ooze glistens on its side - it's wounded!",
+                options: [{
+                        label: "Cut the vines with the laser.",
+                        target: "useLaser",
+                        showIf: "laser"
+                    },
+                    {
+                        label: "Heal it with the medkit.",
+                        target: "useMedkit",
+                        showIf: "medkit"
+                    }]
+            },
+            useLaser: {
+                showIf: "laser",
+                text: "<p>You slice through the vines! Free from its trap the creature hops over to  bush and plucks a leaf, which it uses to bandage its would.</p> Tool use! You may well have discovered intelligent life!</p>",
+                options: [{
+                        label: "Mission successful - play again?",
+                        target: "landing",
+                        resetFlags: "true"
+                    }]
+            },
+            useMedkit: {
+                showIf: "medkit",
+                text: "<p>Using the medkit you heal the creatures wounds. Regaining its strength it manages to free  itself from the vines that trap it, then nuzzles against you affectionatly... your first friend on a new planet!</p>",
+                options: [{
+                        label: "Mission successful - play again?",
+                        target: "landing",
+                        resetFlags: "true"
+                    }]
+            }
+        },
+        flags: {
+            laser: false,
+            medkit: false
+        },
+        start: "landing"
+    });
+
+    //show the source
+    var tree = $("#tree").data("jqIf");
+    showSource(tree, "source");
+
+    </script>
+
+    <p class="moreExamples"><a href="index.html">&laquo; More examples</a></p>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="js/jquery-min.js"></script>
+    <script src="js/jquery.jqif.js"></script>
+    <script src="js/utils.js"></script>
+    <title>jqIf - Hello</title>
+</head>
+
+<body>
+    <h2>ifTree - Hello</h2>
+    <div id="tree"></div>
+    <pre id="source"></pre>
+    <script>
+    $("#tree").jqIf({
+        nodes: {
+            hello: {
+                text: "<p>Hello! Do you like doggies or kitties?</p>",
+                options: [{
+                        label: "\"Doggies!\"",
+                        target: "doggies",
+                    },
+                    {
+                        label: "\"Kitties!\"",
+                        target: "kitties",
+                    }]
+            },
+            doggies:  { 
+                text:"<p>I like doggies too! Have a nice day!</p>",
+            },
+            kitties: {
+                text: "<p>I like kitties too! Have a nice day!</p>"
+            }
+        },
+        start: "hello"
+    });
+
+    //show the source
+    var tree = $("#tree").data("jqIf");
+    showSource(tree, "source");
+
+    </script>
+
+    <p class="moreExamples"><a href="index.html">&laquo; More examples</a></p>
+</body>
+
+</html>

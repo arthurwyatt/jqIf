@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="js/jquery-min.js"></script>
+    <script src="js/jquery.jqif.js"></script>
+    <script src="js/utils.js"></script>
+    <title>jqIf - Coin Toss</title>
+</head>
+
+<body>
+    <h2>jqIf - Coin Toss</h2>
+    <div id="tree"></div>
+
+    <pre id="source"></pre>
+    <script>
+    $("#tree").jqIf({
+        nodes: {
+            start: {
+                text: "<p>Lets play a game! Heads you win, tails you lose.</p>",
+                options: [{
+                        label: "Flip a coin",
+                        target: ["heads", "tails"]
+                    }]
+            },
+            heads:  { 
+                text:"<p>HEADS - congratulations!</p>",
+                options: [{
+                        label: "Play again.",
+                        target: "start"
+                    }]
+            },
+            tails: {
+                text: "<p>TAILS - better luck next time!</p>",
+                options: [{
+                        label: "Play again.",
+                        target: "start"
+                    }]
+            }
+        }
+    });
+
+    //show the source
+    var tree = $("#tree").data("jqIf");
+    showSource(tree, "source");
+    </script>
+
+    <p class="moreExamples"><a href="index.html">&laquo; More examples</a></p>
+</body>
+
+</html>

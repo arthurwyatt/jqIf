@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="js/jquery-min.js"></script>
+    <script src="js/jquery.jqif.js"></script>
+    <script src="js/gameData.js"></script>
+    <script src="js/utils.js"></script>
+
+    <title>jqIf - Simple Game</title>
+</head>
+
+<body>
+    <h2>jqIf - Simple Game</h2>
+    <div id="tree"></div>
+    <pre id="source"></pre>
+    <script>
+        $("#tree").jqIf({
+            nodes: data.nodes,
+            start: "stream",
+            flags: data.flags
+        });
+
+        var tree = $("#tree").data("jqIf");
+        showSource(tree, "source");
+    </script>
+    
+    <p class="moreExamples"><a href="index.html">&laquo; More examples</a></p>
+    
+</body>
+
+</html>

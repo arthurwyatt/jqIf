@@ -1,0 +1,103 @@
+
+
+body {
+	font-size: 1em;
+	font-family: arial, helvetica, sans-serif;
+	color: black;
+	margin: 0.5em;
+} 
+
+a {
+	color: #333399;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h2 {
+    font-family: arial, helvetica, sans-serif;
+    font-size: 1.5em;
+    background-color: #333333;
+    color: white;
+    padding: 0.5em;
+    margin: -0.5em -0.30em 0.5em -0.5em;
+    font-weight: normal;
+} 
+
+button {
+	font-size: 1em;
+}
+
+hr {
+	height: 1px;
+	border: 1px solid #cccccc;
+}
+
+#tree {
+	float: left;
+	width: 50%;
+}
+
+#tree ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#source {
+	padding: 0.5em;
+	font-size: 0.75em;
+	font-family: courier, monospace;
+	border: 1px dashed #333333;
+	background-color: #dddddd;
+	margin: 0.5em -1px;
+	overflow: auto;
+	width: 45%;
+	float: right;
+}
+
+.moreExamples {
+	position: absolute;
+	top: 0.75em;
+	right: 0.75em;
+	margin: 0;
+	padding: 0;
+}
+
+.moreExamples a {
+	color: white;
+}
+
+@media only screen and (max-device-width: 480px) {
+	body {
+		font-size: 2em;
+	}
+
+	button {
+		width: 100%;
+		font-size: 1.5em;
+	}
+
+	#tree {
+		float: none;
+		width: auto;
+	}
+
+	#source {
+		float: none;
+		width: auto;
+	}
+
+	.moreExamples {
+		margin: 1em 0px;
+		position: relative;
+		top: 0;
+		right: 0;
+	}
+
+	.moreExamples a {
+		color: #333399; 
+	}
+}
